@@ -32,7 +32,7 @@ FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
 GROUP BY 1;
 
-- Querry for find Overall Performance by Product Sub Category
+- Querry for find Overall Performance by Product Sub Category:
 SELECT YEAR(order_date) AS years, product_sub_category, SUM(sales) AS sales
 FROM dqlab_sales_store
 WHERE order_status = 'order finished' AND YEAR(order_date) >= 2011
@@ -47,7 +47,7 @@ FROM dqlab_sales_store
 WHERE order_status = 'order finished'
 GROUP BY years;
 
-- Querry for Promotion Effectiveness and Efficiency by Product Sub Category
+- Querry for Promotion Effectiveness and Efficiency by Product Sub Category:
 SELECT YEAR(order_date) AS years, product_sub_category, product_category, 
 SUM(sales) AS sales, SUM(discount_value) AS promotion_value, 
 ROUND((SUM(discount_value)/SUM(sales))*100, 2) AS burn_rate_percentage
@@ -56,7 +56,7 @@ WHERE order_status = 'order finished' AND YEAR(order_date) = 2012
 GROUP BY 1,2,3
 ORDER BY sales DESC;
 
-- Querry for Customers Transactions per Year
+- Querry for Customers Transactions per Year: 
 SELECT YEAR(order_date) AS years, 
 COUNT(DISTINCT customer) number_of_customer
 FROM dqlab_sales_store
